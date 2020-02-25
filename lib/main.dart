@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               )),
         ),
 //        home: CategoryScreen(),
-      //This defines the category-meal-screen route
+      //This defines the category-meal-s creen route
       routes: {
           //The '/' defines the path of the homescreen
           '/':(ctx) => TabsScreen(),
