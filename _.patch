@@ -1,0 +1,16 @@
+Index: lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/main.dart	(revision 0ea0a3d1d4bfe1f18aca8c42fd234e33bae76fc5)
++++ lib/main.dart	(date 1582605555792)
+@@ -30,7 +30,7 @@
+               )),
+         ),
+ //        home: CategoryScreen(),
+-      //This defines the category-meal-screen route
++      //This defines the category-meal-s creen route
+       routes: {
+           //The '/' defines the path of the homescreen
+           '/':(ctx) => TabsScreen(),
