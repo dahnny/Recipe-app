@@ -10,6 +10,7 @@ class MealItem extends StatelessWidget {
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
+  final Function removeItem;
 
   static const MealItemRoute = '/meal-item-route';
 
@@ -19,10 +20,11 @@ class MealItem extends StatelessWidget {
       @required this.imageUrl,
       @required this.duration,
       @required this.complexity,
-      @required this.affordability});
+      @required this.affordability,
+      @required this.removeItem});
 
-  String get complexityText{
-    switch(complexity){
+  String get complexityText {
+    switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
       case Complexity.Challenging:
@@ -34,8 +36,8 @@ class MealItem extends StatelessWidget {
     }
   }
 
-  String get affordabilityText{
-    switch(affordability){
+  String get affordabilityText {
+    switch (affordability) {
       case Affordability.Affordable:
         return 'Affordable';
       case Affordability.Pricey:
@@ -48,7 +50,14 @@ class MealItem extends StatelessWidget {
   }
 
   void selectMeal(BuildContext context) {
-    Navigator.of(context).pushNamed(MealDetailScreen.routeName, arguments: id);
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routeName, arguments: id)
+        .then((result) {
+        if (result != null) {
+        print(result);
+        removeItem(result);
+      }
+    });
   }
 
   @override
@@ -69,7 +78,12 @@ class MealItem extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15)),
-                  child: Image.network(imageUrl, height: 250, width: double.infinity, fit: BoxFit.cover,),
+                  child: Image.network(
+                    imageUrl,
+                    height: 250,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
                 ),
                 Positioned(
                   bottom: 20,
@@ -78,16 +92,17 @@ class MealItem extends StatelessWidget {
                     width: 300,
                     color: Colors.black54,
                     padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                    child: Text(title, style: TextStyle(
-                      fontSize: 26,
-                      color: Colors.white,
-                    ),
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontSize: 26,
+                        color: Colors.white,
+                      ),
                       softWrap: true,
                       overflow: TextOverflow.fade,
                     ),
                   ),
                 )
-
               ],
             ),
             Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/filters_screen.dart';
 import 'package:food_app/screens/meal_detail_screen.dart';
 import 'package:food_app/screens/tabs_screen.dart';
 import 'file:///C:/Users/Daniel%20Ogbuti/AndroidStudioProjects/food_app/lib/screens/category_screen.dart';
@@ -34,7 +35,9 @@ class MyApp extends StatelessWidget {
           //The '/' defines the path of the homescreen
           '/':(ctx) => TabsScreen(),
           CategoryMealScreen.routeName: (ctx) => CategoryMealScreen(),
-          MealDetailScreen.routeName: (ctx) => MealDetailScreen()
+          MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+        FiltersScreen.routeName: (ctx)=> FiltersScreen()
+
       },
     );
   }

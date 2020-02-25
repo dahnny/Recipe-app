@@ -83,6 +83,13 @@ class MealDetailScreen extends StatelessWidget {
               }, itemCount: selectedMeal.steps.length,))
             ],
           ),
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete),
+        onPressed: (){
+          return Navigator.of(context).pop(mealId);
+        },
+      ),
+    );
   }
 }
